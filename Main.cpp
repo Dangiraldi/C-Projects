@@ -1,22 +1,38 @@
 #include <iostream>
+#include "Complex.h"
 using namespace std;
 
-void pageTable(unsigned int);
-
-int main(unsigned int address)
+int main(Complex x, Complex y) //Main takes two of class Complex as arguments. Makes life easier.
 {
-	cout<<"Enter Address(32-bit): ";
-	cin>>address;
-	pageTable(address);
+	cout<<"Format: [number1] [operation] [number2]"<<endl; //format for entering in equation. Only binary equations accepted
+	char operation;
+	cin>>x.value>>operation>>y.value; 
 
-	system("pause");
-	return 0;
-}
+	if(operation=='+')
+	{
+		cout<<x.value+y.value<<endl; //Overloading in action!!!
+		system("pause");
+	}
+	else
+	if(operation=='-')
+	{
+		cout<<x.value-y.value<<endl;
+		system("pause");
+	}
+	else
+	if(operation=='*')
+	{
+		cout<<x.value*y.value<<endl; 
+		system("pause");
+	}
+	else
+	if(operation=='/')
+	{
+		cout<<x.value/y.value<<endl;
+		system("pause");
+	}
+	else
+		system("pause");
+		return 0;
 
-void pageTable(unsigned int a)
-{
-	unsigned int pageNum,offset;
-	pageNum=a/4096; //4096 because 4KB
-	offset=a%4096;
-	cout<<"The address "<<a<<" contains: \nPage number = "<<pageNum<<"\nOffset = "<<offset<<endl;
 }
